@@ -1,0 +1,8 @@
+.App-home ul {
+  list-style-type: none;
+}
+
+.App-home a {
+  text-decoration: none;
+  color: white;
+}
