@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { useLocation } from "wouter";
 
-const SearchForm = ({ onSubmit }) => {
-  const [keyword, setKeyword] = useState("");
+const RATINGS = ["g", "pg", "pg-13", "r"];
+
+const SearchForm = ({ initialKeyword = "", initialRating = "g" }) => {
+  const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword));
   const [path, pushLocation] = useLocation();
+  const [rating, setRating] = useState(initialRating);
 
   const handelSubmit = (event) => {
     event.preventDefault();
-    pushLocation(`/search/${keyword}`);
-    onSubmit({ keyword });
+    pushLocation(`/search/${keyword}/${rating}`);
+    // onSubmit({ keyword });
   };
 
   const handleInput = (event) => {
     setKeyword(event.target.value);
+  };
+
+  const handleChangeRating = (event) => {
+    setRating(event.target.value);
   };
 
   return (
@@ -24,6 +31,12 @@ const SearchForm = ({ onSubmit }) => {
         placeholder="Search a gif here..."
       />
       <button>Search</button>
+      <select onChange={handleChangeRating} value={rating}>
+        <option disabled>Rating type</option>
+        {RATINGS.map((rating) => (
+          <option key={rating}>{rating}</option>
+        ))}
+      </select>
     </form>
   );
 };
