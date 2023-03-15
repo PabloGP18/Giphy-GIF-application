@@ -10,7 +10,7 @@ import SearchForm from "component/SearchForm";
 
 const SearchResults = ({ params }) => {
   console.log(params);
-  const { keyword, rating = "r" } = params;
+  const { keyword, rating = "g" } = params;
   const { loading, gifs, setPage } = useGifs({ keyword, rating });
   const externalRef = useRef();
   const { show } = useNearScreen({
