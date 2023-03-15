@@ -24,7 +24,7 @@ function App() {
               <Route path="/" component={HomePage} />
               <Route path="/gif/:id" component={Detail} />
               <Route
-                path="/search/:keyword/:rating?"
+                path="/search/:keyword/:rating?/:language?"
                 component={SearchResults}
               />
               <Route path="/404" component={() => <h1>404 ERROR </h1>} />
