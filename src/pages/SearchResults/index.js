@@ -45,7 +45,7 @@ const SearchResults = ({ params }) => {
             <title>{title}</title>
             <meta name="description" content={title} />
           </Helmet>
-          <SearchForm onSubmit={handleSubmit} />
+          <SearchForm />
           <h3 className="App-title">{decodeURI(keyword)}</h3>
           <ListOfGifs gifs={gifs} />
           <div id="visor" ref={externalRef}></div>
