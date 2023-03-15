@@ -10,8 +10,8 @@ import SearchForm from "component/SearchForm";
 
 const SearchResults = ({ params }) => {
   console.log(params);
-  const { keyword } = params;
-  const { loading, gifs, setPage } = useGifs({ keyword });
+  const { keyword, rating = "r" } = params;
+  const { loading, gifs, setPage } = useGifs({ keyword, rating });
   const externalRef = useRef();
   const { show } = useNearScreen({
     externalRef: loading ? null : externalRef,
@@ -45,7 +45,7 @@ const SearchResults = ({ params }) => {
             <title>{title}</title>
             <meta name="description" content={title} />
           </Helmet>
-          <SearchForm />
+          <SearchForm initialKeyword={keyword} initialRating={rating} />
           <h3 className="App-title">{decodeURI(keyword)}</h3>
           <ListOfGifs gifs={gifs} />
           <div id="visor" ref={externalRef}></div>
