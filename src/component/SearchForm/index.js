@@ -1,4 +1,5 @@
-import React, { useReducer, useState } from "react";
+import React from "react";
+import useForm from "./useFormHook";
 import { useLocation } from "wouter";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
@@ -51,60 +52,6 @@ const LANGUAGES = [
   "vi",
 ];
 
-const ACTIONS = {
-  UPDATE_KEYWORD: "update_keyword",
-  UPDATE_RATING: "update_rating",
-  UPDATE_LANGUAGE: "update_language",
-  RESET_FILTERS: "reset_filters",
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ACTIONS.UPDATE_KEYWORD:
-      return {
-        ...state,
-        keyword: action.payload,
-        times: state.times + 1,
-      };
-    case ACTIONS.UPDATE_RATING:
-      return {
-        ...state,
-        rating: action.payload,
-        times: state.times + 1,
-      };
-    case ACTIONS.UPDATE_LANGUAGE:
-      return {
-        ...state,
-        language: action.payload,
-        times: state.times + 1,
-      };
-    case ACTIONS.RESET_FILTERS:
-      return {
-        keyword: "",
-        rating: "g",
-        language: "en",
-        times: 0,
-      };
-    default:
-      return state;
-  }
-
-  /*With if & if else
-  // if (action.type === ACTIONS.UPDATE_KEYWORD) {
-  //   return {
-  //     ...state,
-  //     keyword: action.payload,
-  //     times: state.times + 1,
-  //   };
-  // } else if (action.type === ACTIONS.UPDATE_RATING) {
-  //   return {
-  //     ...state,
-  //     rating: action.payload,
-  //     times: state.times + 1,
-  //   };
-*/
-};
-
 const SearchForm = ({
   initialKeyword = "",
   initialRating = "g",
@@ -115,14 +62,16 @@ const SearchForm = ({
   // const [times, setTimes] = useState(0);
   // const [rating, setRating] = useState(initialRating);
 
-  const [state, dispatch] = useReducer(reducer, {
-    keyword: decodeURIComponent(initialKeyword),
-    rating: initialRating,
-    times: 0,
-    language: initialLanguage,
-  });
-
-  const { keyword, times, rating, language } = state;
+  const {
+    keyword,
+    times,
+    rating,
+    language,
+    updateKeyword,
+    updateRating,
+    updateLanguage,
+    updateFilter,
+  } = useForm({ initialKeyword, initialRating, initialLanguage });
 
   const [path, pushLocation] = useLocation();
 
@@ -135,20 +84,20 @@ const SearchForm = ({
   const handleChange = (event) => {
     // using dispatch this way if you have only one dispatch in useReducer
     // dispatch(event.target.value);
-
-    dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: event.target.value });
+    updateKeyword(event.target.value);
   };
 
   const handleChangeRating = (event) => {
-    dispatch({ type: ACTIONS.UPDATE_RATING, payload: event.target.value });
+    updateRating(event.target.value);
   };
 
   const handleChangeLanguage = (event) => {
-    dispatch({ type: ACTIONS.UPDATE_LANGUAGE, payload: event.target.value });
+    updateLanguage(event.target.value);
   };
 
   const handleReset = () => {
-    dispatch({ type: ACTIONS.RESET_FILTERS });
+    updateFilter();
+
     // This way you can use it without a putting the reset action in the switch
     // dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: initialKeyword });
     // dispatch({ type: ACTIONS.UPDATE_RATING, payload: initialRating });
