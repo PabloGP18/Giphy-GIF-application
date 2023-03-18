@@ -1,9 +1,14 @@
 .App {
   text-align: center;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
 
 .App-content {
-  background-color: rgb(25, 212, 225);
+  background-color: rgb(110, 108, 124);
   display: flex;
   flex-direction: column;
   align-items: center;
