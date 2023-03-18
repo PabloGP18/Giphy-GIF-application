@@ -75,9 +75,24 @@ const SearchForm = ({
 
   const [path, pushLocation] = useLocation();
 
+  // to check if you put any content in the searchbar
+  const onSubmit = ({ keyword }) => {
+    if (!keyword.trim()) {
+      return;
+    }
+    pushLocation(`/search/${keyword}/${rating}/${language}`);
+
+    /* this i was using, but you can still then put several whitespaces in the searchbar and it still will try to find something.
+    The solution is using the trim() method to remove whitespaces
+    if (keyword !== "") {
+      pushLocation(`/search/${keyword}/${rating}/${language}`);
+    }*/
+  };
+
   const handelSubmit = (event) => {
     event.preventDefault();
-    pushLocation(`/search/${keyword}/${rating}/${language}`);
+    onSubmit({ keyword });
+    // pushLocation(`/search/${keyword}/${rating}/${language}`);
     // onSubmit({ keyword });
   };
 
