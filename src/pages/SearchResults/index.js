@@ -19,6 +19,7 @@ const SearchResults = ({ params }) => {
   });
 
   const title = gifs ? `${gifs.length} results of ${decodeURI(keyword)}` : "";
+
   // useSeo({ title });
 
   // const handleNextPage = () => setPage((prevPage) => prevPage + 1); this is with a button
