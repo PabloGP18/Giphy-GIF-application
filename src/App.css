@@ -1,36 +1,33 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .App-content {
-  background-color: rgb(110, 108, 124);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  max-width: 1200px;
   font-size: calc(10px + 2vmin);
-  min-height: 100vh;
-  padding: 16px;
+  margin: 0 auto;
 }
 
 .App-logo {
-  margin: 10px auto;
-  padding: 20px 0;
-  width: 144px;
   cursor: pointer;
-}
-
-.App-logo img {
-  object-fit: cover;
   width: 100%;
+  height: auto;
 }
 
-.App-main {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.App-figure img {
+  width: 500px;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+  margin: 6px;
+}
+.App-title-results {
+  align-items: center;
+  text-transform: uppercase;
 }
