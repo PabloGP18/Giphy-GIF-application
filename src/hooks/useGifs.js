@@ -5,7 +5,7 @@ import GifsContext from "../context/GifsContext";
 const INITIAL_PAGE = 0;
 
 const useGifs = (
-  { keyword, rating, language, limit } = { keyword: null, limit: 5 }
+  { keyword, rating, language, limit } = { keyword: null, limit: 14 }
 ) => {
   const [loading, setLoading] = useState(false);
   const [loadingNextPage, setLoadingNextPage] = useState(false);
@@ -24,7 +24,7 @@ const useGifs = (
       (images) => {
         setGifs(images);
         setLoading(false);
-        localStorage.setItem("lastKeyword", keyword);
+        localStorage.setItem("lastKeyword", keywordToUse);
       }
     );
     // storing the keyword in localStorage
@@ -36,11 +36,11 @@ const useGifs = (
 
     setLoadingNextPage(true);
 
-    getGifs({ keyword: keywordToUse, page, rating }).then((nextGifs) => {
+    getGifs({ keyword: keywordToUse, page, rating, limit }).then((nextGifs) => {
       setGifs((prevGifs) => prevGifs.concat(nextGifs));
       setLoadingNextPage(false);
     });
-  }, [page, keywordToUse, setGifs, language, rating]);
+  }, [page, keywordToUse, setGifs, language, rating, limit]);
 
   return { loading, gifs, setPage, loadingNextPage, rating, language };
 };
