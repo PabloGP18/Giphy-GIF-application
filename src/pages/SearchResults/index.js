@@ -51,7 +51,7 @@ const SearchResults = ({ params }) => {
             initialRating={rating}
             initialLanguage={language}
           />
-          <h3 className="App-title">{decodeURI(keyword)}</h3>
+          <h3 className="App-title-results">{decodeURI(keyword)}</h3>
           <ListOfGifs gifs={gifs} />
           <div id="visor" ref={externalRef}></div>
         </>
