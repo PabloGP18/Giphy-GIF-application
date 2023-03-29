@@ -4,6 +4,7 @@ import useSingleGif from "hooks/useSingleGif";
 import { Redirect } from "wouter";
 import Gif from "../../component/Gif/Gif";
 import { Helmet } from "react-helmet";
+import "./style.css";
 
 const Detail = ({ params }) => {
   const { gif, isLoading, isError } = useSingleGif({ id: params.id });
@@ -29,8 +30,8 @@ const Detail = ({ params }) => {
         <title>{decodeURI(title)} | Giffy</title>
         <meta name="description" content={`Detail of ${decodeURI(title)}`} />
       </Helmet>
-      <h3 className="App-title">{gif.title}</h3>
-      <Gif {...gif} />
+      <h3 className="App-title-detail">{gif.title}</h3>
+      <Gif {...gif} className="smaller-image" />
     </>
   );
 };
