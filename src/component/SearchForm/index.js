@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import useForm from "./useFormHook";
 import { useLocation } from "wouter";
-
+import "./SearchForm.css";
 const RATINGS = ["g", "pg", "pg-13", "r"];
 
 const LANGUAGES = [
@@ -61,6 +61,8 @@ const SearchForm = ({
   // const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword));
   // const [times, setTimes] = useState(0);
   // const [rating, setRating] = useState(initialRating);
+
+  const [showFilters, setShowFilters] = useState(false);
 
   const {
     keyword,
@@ -128,33 +130,51 @@ const SearchForm = ({
   //   setRating(event.target.value);
   // };
 
+  function handleFilters() {
+    setShowFilters(!showFilters);
+  }
+
   return (
     <>
-      <form onSubmit={handelSubmit}>
-        <input
-          onChange={handleChange}
-          type="text"
-          value={keyword}
-          placeholder="Search a gif here..."
-        />
-        <button>Search</button>
-        <select onChange={handleChangeRating} value={rating}>
-          <option disabled>Rating type</option>
-          {RATINGS.map((rating) => (
-            <option key={rating}>{rating}</option>
-          ))}
-        </select>
-        <select onChange={handleChangeLanguage} value={language}>
-          <option disabled>Select language</option>
-          {LANGUAGES.map((language) => (
-            <option key={language}>{language}</option>
-          ))}
-        </select>
-        <small>{times}</small>
+      <form onSubmit={handelSubmit} className="App-form">
+        <div className="App-input">
+          <input
+            onChange={handleChange}
+            type="text"
+            value={keyword}
+            placeholder="Search a gif here..."
+          />
+          <button>Search</button>
+          <button type="button" onClick={handleReset}>
+            Reset Filters
+          </button>
+        </div>
+        <div></div>
+        <div>
+          {showFilters ? (
+            <div className="App-options">
+              <select onChange={handleChangeRating} value={rating}>
+                <option disabled>Rating type</option>
+                {RATINGS.map((rating) => (
+                  <option key={rating}>{rating}</option>
+                ))}
+              </select>
+              <select onChange={handleChangeLanguage} value={language}>
+                <option disabled>Select language</option>
+                {LANGUAGES.map((language) => (
+                  <option key={language}>{language}</option>
+                ))}
+              </select>
+            </div>
+          ) : (
+            <p onClick={handleFilters} className="App-ptag">
+              Do you want to change the language or the rating? Click here
+            </p>
+          )}
+        </div>
+
+        {/* <small>{times}</small> */}
       </form>
-      <button type="button" onClick={handleReset}>
-        Reset Filters
-      </button>
     </>
   );
 };
