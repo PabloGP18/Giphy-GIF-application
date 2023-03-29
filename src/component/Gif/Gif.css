@@ -1,26 +1,38 @@
-.gif {
-  /* border: 1px solid white;
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: white;
-  width: 100%;
-  padding: 32px;
-  margin: 16px; */
-}
+/* .Gif,
+.Gif-link {
+  height: 100%;
+} */
 
-.gif img {
+.Gif img {
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   vertical-align: top;
+  /* object-fit: cover;
+  width: 100%; */
+  height: 100%;
+  /* border-radius: 10px; */
+}
+/* 
+.Gif:hover img {
+  opacity: 0.7;
 }
 
-.gif h4 {
+.Gif:hover:after img {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.632);
+} */
+
+/* .gif h4 {
   background: rgba(0, 0, 0, 0.3);
   bottom: 0;
   font-size: 12px;
   color: #fff;
   margin: 0;
   position: absolute;
-}
+} */
