@@ -9,7 +9,7 @@ const TrendingSearches = () => {
     getTrendingTermsService().then(setTrends);
   }, []);
 
-  return <Category name="tendencies" options={trends} />;
+  return <Category options={trends} />;
 };
 
 export default TrendingSearches;
