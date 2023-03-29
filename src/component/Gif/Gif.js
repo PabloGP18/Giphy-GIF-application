@@ -2,13 +2,15 @@ import React from "react";
 import "./Gif.css";
 import { Link } from "wouter";
 
-const Gif = ({ title, id, url }) => {
+const Gif = ({ title, id, url, className }) => {
   return (
-    <Link to={`/gif/${id}`} className="gif">
-      <h4>{title}</h4>
-      {/* <small>{id}</small> */}
-      <img loading="lazy" alt={title} src={url} />
-    </Link>
+    <div className="Gif">
+      <Link to={`/gif/${id}`} className="Gif-link">
+        {/* <h4>{title}</h4> */}
+        {/* <small>{id}</small> */}
+        <img loading="lazy" alt={title} src={url} className={className} />
+      </Link>
+    </div>
   );
 };
 
