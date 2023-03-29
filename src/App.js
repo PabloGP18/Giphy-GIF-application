@@ -18,10 +18,14 @@ function App() {
     <StaticContext.Provider value={{ name: "pablo", subscribe: true }}>
       <div className="App">
         <Suspense fallback={null}>
+          <header>
+            <figure className="App-figure">
+              <Link to="/">
+                <img src={logo} alt="Giphy logo" />
+              </Link>
+            </figure>
+          </header>
           <section className="App-content">
-            <Link to="/">
-              <img className="App-logo" src={logo} alt="Giphy logo" />
-            </Link>
             <GifsContextProvider>
               <Switch>
                 <Route exact path="/" component={HomePage} />
