@@ -44,10 +44,15 @@ const Home = () => {
         {/* {element} */}
         <SearchForm />
         <div className="App-results">
-          <h3 className="App-title">Last Search</h3>
-          <ListOfGifs gifs={gifs} />
+          <div className="App-listofgifs">
+            <h3 className="App-title">Last Search</h3>
+            <ListOfGifs gifs={gifs} />
+          </div>
+          <div className="App-trendingSearches">
+            <h3 className="App-title-trending">Trending</h3>
+            <TrendingSearches />
+          </div>
         </div>
-        <TrendingSearches />
       </div>
     </>
   );
