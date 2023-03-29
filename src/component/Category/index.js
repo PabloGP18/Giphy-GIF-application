@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import "./Category.css";
 
 const Category = ({ options = [], name }) => {
   return (
