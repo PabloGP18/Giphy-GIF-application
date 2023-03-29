@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Home | Giffy</title>
+        <title>Home | Giphy</title>
         <meta
           name="description"
           content="A cool website where you can search for gifs!"

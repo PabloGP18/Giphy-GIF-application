@@ -27,7 +27,7 @@ const Detail = ({ params }) => {
   return (
     <>
       <Helmet>
-        <title>{decodeURI(title)} | Giffy</title>
+        <title>{decodeURI(title)} | Giphy</title>
         <meta name="description" content={`Detail of ${decodeURI(title)}`} />
       </Helmet>
       <h3 className="App-title-detail">{gif.title}</h3>

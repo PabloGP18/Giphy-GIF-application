@@ -13,7 +13,7 @@ export default function useSEO({ title, description }) {
     const previousTitle = prevTitle.current;
     if (title) {
       // giving de detail page his own title => check detail page/index.js
-      document.title = `${title} | Giffy`;
+      document.title = `${title} | Giphy`;
     }
     //After going back from detail to home it will give back prev title // reset of the useEffect
     return () => (document.title = previousTitle);

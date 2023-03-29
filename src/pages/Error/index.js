@@ -15,7 +15,7 @@ export default function ErrorPage() {
       ) : (
         <>
           <Helmet>
-            <title>Error 404 | Giffy</title>
+            <title>Error 404 | Giphy</title>
             <meta
               name="description"
               content="oh oh... only error gifs on this page"
