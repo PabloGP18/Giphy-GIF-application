@@ -14,7 +14,9 @@ const Home = () => {
   // This logic is done now in the searchForm, because we i'm not passing any props
   // const [path, pushLocation] = useLocation();
 
-  const { gifs } = useGifs();
+  const { gifs, keywordToUse } = useGifs();
+
+  console.log(keywordToUse);
 
   // The useCallback will save this function untill the dependancy(pushLocation) of this function changes. If this changes it will create the function again
   // This function can be use if searchForm passes the prop onSubmit with keyword information and then retreaved back here in this function to make it work
@@ -45,7 +47,11 @@ const Home = () => {
         <SearchForm />
         <div className="App-results">
           <div className="App-listofgifs">
-            <h3 className="App-title">Last Search</h3>
+            {keywordToUse !== "not found" && keywordToUse !== null ? (
+              <h3 className="App-title">Last Search</h3>
+            ) : (
+              <h3 className="App-title">random</h3>
+            )}
             <ListOfGifs gifs={gifs} />
           </div>
           <div className="App-trendingSearches">
