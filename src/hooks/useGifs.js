@@ -54,7 +54,15 @@ const useGifs = (
     });
   }, [page, keywordToUse, setGifs, language, rating, limit]);
 
-  return { loading, gifs, setPage, loadingNextPage, rating, language };
+  return {
+    loading,
+    gifs,
+    setPage,
+    loadingNextPage,
+    rating,
+    language,
+    keywordToUse,
+  };
 };
 
 export default useGifs;
