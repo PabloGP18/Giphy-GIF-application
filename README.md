@@ -1,6 +1,6 @@
 # What I Learned
 
-## Creando una aplicación paso a paso
+## Creating an application step by step
 
 - I learned the basics of React.js, including its definition, popularity, and fundamental concepts. Additionally, I built my first components and created a React.js application from scratch.
 
