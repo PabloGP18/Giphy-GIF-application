@@ -32,6 +32,10 @@
 
 - I learned how to use the useReducer hook to manage state in React.js applications. Furthermore, I discovered how to test my hooks using the react-hooks-testing-library.
 
+## Next steps
+
+- While the application is functional, there are additional features I would like to implement. Specifically, I plan to integrate node.js with a database, potentially using MongoDB, to enable user registration and login functionality with persistent storage.
+
 ---
 
 ## Getting Started with Create React App
