@@ -13,8 +13,9 @@ const useGifs = (
   const { gifs, setGifs } = useContext(GifsContext);
 
   // if you have a keyword? Get it from the localStoragestorage, if you don't look for nothing it will search for random
+  const defaultKeyword = "not found";
   const keywordToUse =
-    keyword || localStorage.getItem("lastKeyword") || "random";
+    keyword || localStorage.getItem("lastKeyword") || defaultKeyword;
   console.log(keywordToUse);
 
   useEffect(() => {
@@ -22,9 +23,20 @@ const useGifs = (
 
     getGifs({ keyword: keywordToUse, rating, language, limit }).then(
       (images) => {
-        setGifs(images);
-        setLoading(false);
-        localStorage.setItem("lastKeyword", keywordToUse);
+        if (images.length === 0) {
+          // if no images were found, try again with the default keyword
+          getGifs({ keyword: defaultKeyword, rating, language, limit }).then(
+            (defaultImages) => {
+              setGifs(defaultImages);
+              setLoading(false);
+              localStorage.setItem("lastKeyword", defaultKeyword);
+            }
+          );
+        } else {
+          setGifs(images);
+          setLoading(false);
+          localStorage.setItem("lastKeyword", keywordToUse);
+        }
       }
     );
     // storing the keyword in localStorage
