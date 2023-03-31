@@ -13,7 +13,7 @@ const useGifs = (
   const { gifs, setGifs } = useContext(GifsContext);
 
   // if you have a keyword? Get it from the localStoragestorage, if you don't look for nothing it will search for random
-  const defaultKeyword = "not found";
+  const defaultKeyword = "random";
   const keywordToUse =
     keyword || localStorage.getItem("lastKeyword") || defaultKeyword;
   console.log(keywordToUse);
