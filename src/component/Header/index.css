@@ -1,0 +1,19 @@
+.gf-header {
+  display: flex;
+  justify-content: end;
+}
+
+.gf-header a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+gf-header a:hover {
+  text-decoration: underline;
+}
+
+.gf-header a + a {
+  margin: O 12 px;
+}
