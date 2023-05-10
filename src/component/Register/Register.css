@@ -1,0 +1,20 @@
+.btn-register[disabled] {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.form-error,
+.form small {
+  color: red;
+  font-size: 12px;
+  margin-top: -4px;
+  display: block;
+}
+
+form input {
+  color: black;
+}
+
+form input.error {
+  border: 8xp solid redÒ;
+}
