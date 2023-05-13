@@ -16,6 +16,8 @@ import { GifsContextProvider } from './context/GifsContext'
 import { UserContextProvider } from 'context/UserContext'
 
 import './App.css'
+import FavsPage from 'pages/Favs'
+import Favs from 'component/Favs'
 
 const HomePage = lazy(() => import('./pages/Home'))
 
@@ -26,9 +28,9 @@ function App() {
     <UserContextProvider>
       <StaticContext.Provider value={{ name: 'pablo', subscribe: true }}>
         <div className="App">
+          <Header />
           <Suspense fallback={null}>
             <header>
-              <Header />
               <figure className="App-figure">
                 <Link to="/">
                   <img src={logo} alt="Giphy logo" />
@@ -46,6 +48,8 @@ function App() {
                   <Route path="/gif/:id" component={Detail} />
                   <Route path="/login" component={Login} />
                   <Route path="/register" component={Register} />
+                  <Route path="/favorite/favs" component={Favs} />
+
                   <Route path="/:rest*" component={ErrorPage} />
                 </Switch>
               </GifsContextProvider>
