@@ -1,6 +1,8 @@
 .gf-header {
   display: flex;
   justify-content: end;
+  width: 100%;
+  margin: 10px;
 }
 
 .gf-header a {
@@ -16,4 +18,10 @@ gf-header a:hover {
 
 .gf-header a + a {
   margin: O 12 px;
+}
+
+.header-container {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
 }

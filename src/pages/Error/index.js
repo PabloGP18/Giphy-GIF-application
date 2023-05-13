@@ -1,12 +1,12 @@
-import SearchForm from "component/SearchForm";
-import { Helmet } from "react-helmet";
-import { Link } from "wouter";
-import useGifs from "hooks/useGifs";
-import Spinner from "component/Spinner";
-import ListOfGifs from "component/ListOfGifs/ListOfGifs";
+import SearchForm from 'component/SearchForm'
+import { Helmet } from 'react-helmet'
+import { Link } from 'wouter'
+import useGifs from 'hooks/useGifs'
+import Spinner from 'component/Spinner'
+import ListOfGifs from 'component/ListOfGifs/ListOfGifs'
 
 export default function ErrorPage() {
-  const { loading, gifs } = useGifs({ keyword: "Errors", limit: 8 });
+  const { loading, gifs } = useGifs({ keyword: 'Errors', limit: 8 })
 
   return (
     <>
@@ -38,5 +38,5 @@ export default function ErrorPage() {
         </>
       )}
     </>
-  );
+  )
 }

@@ -19,10 +19,10 @@ export default function Header() {
     return isLogged ? (
       <button onClick={handleClick}>Logout</button>
     ) : (
-      <>
+      <div className="header-container">
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
-      </>
+      </div>
     )
   }
 

@@ -1,17 +1,18 @@
-import Spinner from "component/Spinner";
-import useSingleGif from "hooks/useSingleGif";
+import Spinner from 'component/Spinner'
+import useSingleGif from 'hooks/useSingleGif'
 // import useSeo from "hooks/useSEO";
-import { Redirect } from "wouter";
-import Gif from "../../component/Gif/Gif";
-import { Helmet } from "react-helmet";
-import "./style.css";
+import { Redirect } from 'wouter'
+import Gif from '../../component/Gif/Gif'
+import { Helmet } from 'react-helmet'
+import './style.css'
+import Favs from 'component/Favs'
 
 const Detail = ({ params }) => {
-  const { gif, isLoading, isError } = useSingleGif({ id: params.id });
-  const title = gif ? gif.title : null;
+  const { gif, isLoading, isError } = useSingleGif({ id: params.id })
+  const title = gif ? gif.title : null
   // useSeo({ title, description: `Detail of ${title}` });
 
-  console.log(isLoading, isError, gif);
+  console.log(isLoading, isError, gif)
   if (isLoading)
     return (
       <>
@@ -20,9 +21,9 @@ const Detail = ({ params }) => {
           <title>Loading...</title>
         </Helmet>
       </>
-    );
-  if (isError) return <Redirect to="/404" />;
-  if (!gif) return null;
+    )
+  if (isError) return <Redirect to="/404" />
+  if (!gif) return null
 
   return (
     <>
@@ -33,7 +34,7 @@ const Detail = ({ params }) => {
       <h3 className="App-title-detail">{gif.title}</h3>
       <Gif {...gif} className="smaller-image" />
     </>
-  );
-};
+  )
+}
 
-export default Detail;
+export default Detail

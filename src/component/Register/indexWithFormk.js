@@ -30,7 +30,7 @@ export default function Register() {
 
   if (registered) {
     // you can even go to another page for a couple of seconds and then go to the actual page...TODO?
-    return <h4>Congratulations ✅! you've been succesfully Registerd</h4>
+    return <h4>Congratulations ✅! you've been succesfully Registered</h4>
   }
 
   return (

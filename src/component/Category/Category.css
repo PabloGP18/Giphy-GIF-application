@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   margin: 1rem 0;
-  min-height: 400px;
+  /* min-height: 400px; */
 }
 
 .Category h3 {
@@ -16,7 +16,7 @@
 .Category ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -28,7 +28,7 @@
   padding: 5px;
   font-size: 1.2rem;
   color: #fff;
-  width: 70%;
+  /* width: 70%; */
   box-sizing: border-box;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .Category li:nth-child(5n + 3) {
-  background-color: rgb(203, 203, 26);
+  background-color: rgb(214, 214, 1);
 }
 
 .Category li:nth-child(5n + 4) {
@@ -66,6 +66,10 @@
   }
 
   .Category ul {
+    justify-content: center;
+  }
+  .App-title-trending {
+    display: flex;
     justify-content: center;
   }
 }

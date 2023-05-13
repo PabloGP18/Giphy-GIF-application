@@ -35,7 +35,7 @@
 
 .App-title-trending {
   display: flex;
-  justify-content: center;
+  justify-content: end;
 }
 
 @media (min-width: 1024px) {

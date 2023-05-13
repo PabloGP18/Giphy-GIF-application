@@ -20,6 +20,6 @@ export default function addFav({ id, jwt }) {
       if (err.message === 'Favorite already exists') {
         throw new Error('This favorite already exists')
       }
-      throw new Error('Unable to add favorite')
+      throw new Error('Unable to delete favorite')
     })
 }

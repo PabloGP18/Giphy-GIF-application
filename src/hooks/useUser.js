@@ -9,9 +9,6 @@ export default function useUser() {
   const { jwt, setJWT, favs, setFavs } = useContext(Context)
   const [state, setState] = useState({ loading: false, error: false })
 
-  /* passing the username from the login page true this
-  function to the service that is connected to the backend*/
-
   const login = useCallback(
     ({ username, password }) => {
       setState({ loading: true, error: false })
